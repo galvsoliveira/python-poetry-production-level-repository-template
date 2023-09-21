@@ -14,6 +14,11 @@ if [ ! -f .pre-commit-config.yaml ]; then
     pre-commit sample-config > .pre-commit-config.yaml
 fi
 
+if [ ! -f .secrets.baseline ]; then
+    echo 'Creating .secrets.baseline ...'
+    detect-secrets scan > .secrets.baseline
+fi
+
 echo 'Installing dependencies and pre-commit ...'
 poetry install
 poetry run pre-commit install
