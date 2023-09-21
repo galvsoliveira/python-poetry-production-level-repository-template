@@ -7,11 +7,12 @@ meu_projeto/
 │   ├── 02_instalar_plugins_asdf.sh
 │   ├── 03_instalar_dependencias_projeto.sh
 │   ├── desinstalar_ambiente.sh
+├── .pre-commit-config.yaml
 ├── pyproject.toml
 ├── .tool-versions
 ```
 
-### scripts/01_configurar_ambiente.sh
+## scripts/01_configurar_ambiente.sh
 Este script configura o ambiente, instala as ferramentas essenciais, instala as dependências Python e configura o asdf. 
 
 ```bash
@@ -44,7 +45,7 @@ echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
 echo 'Por favor, reinicie o terminal ou execute "source ~/.bashrc" para carregar as configurações.'
 ```
 
-### scripts/02_instalar_plugins_asdf.sh
+## scripts/02_instalar_plugins_asdf.sh
 Este script instala os plugins Python e Poetry para o asdf, conforme definido no arquivo `.tool-versions`. Certifique-se de que o arquivo `.tool-versions` com as versões desejadas esteja na raiz do repositório.
 
 Exemplo de .tool-versions:
@@ -79,7 +80,7 @@ asdf install poetry $poetry_version
 asdf local poetry $poetry_version
 ```
 
-### scripts/03_instalar_dependencias_projeto.sh
+## scripts/03_instalar_dependencias_projeto.sh
 Este script é responsável por criar o arquivo `pyproject.toml` se ele não existir e, em seguida, instala as dependências do projeto e configura o pre-commit.
 
 ```bash
@@ -88,16 +89,18 @@ Este script é responsável por criar o arquivo `pyproject.toml` se ele não exi
 if [ ! -f pyproject.toml ]; then
     echo 'Creating pyproject.toml ...'
     poetry init
+    poetry add --dev pre-commit
 fi
 
 echo 'Installing dependencies and pre-commit ...'
 poetry install
 poetry run pre-commit install
+poetry shell
 ```
 
 Dessa forma, você tem uma estrutura de diretórios organizada e scripts com nomes significativos que indicam claramente suas responsabilidades. Você pode executar esses scripts na ordem apropriada para configurar o ambiente e instalar as dependências do projeto. Para rodar os scripts você pode rodar no terminal: `bash scripts/nome_do_script.sh`.
 
-### scripts/desinstalar_ambiente.sh
+## scripts/desinstalar_ambiente.sh
 ``` bash
 #!/bin/bash
 
@@ -106,6 +109,26 @@ echo 'Removendo o ambiente virtual do projeto atual...'
 poetry env remove $(poetry run which python)
 
 echo 'Concluído. O ambiente virtual do projeto atual foi removido.'
+```
+
+## .pre-commit-config.yaml
+
+Esse arquivo deve existir e possuir algum código para fazer verificações antes de mandar os arquivos para o github. Neste arquivo usamos o Black e o Pylint.
+``` yml
+fail_fast: true
+repos:
+  - repo: https://github.com/psf/black
+    rev: 22.12.0
+    hooks:
+      - id: black
+        args: ["--check", "--skip-string-normalization"]
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: poetry run pylint .
+        language: system
+        types: [python]
 ```
 
 # Como Usar o Poetry para Gerenciar Dependências
