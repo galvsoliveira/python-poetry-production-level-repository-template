@@ -13,7 +13,8 @@ meu_projeto/
 ```
 
 ## Configurando o projeto:
-Basta rodar os scripts `01_configurar_ambiente.sh`, `02_instalar_plugins_asdf.sh`, `03_instalar_dependencias_projeto.sh` em ordem e fazendo o que é orientado no terminal: `bash scripts/nome_do_script.sh`.
+Basta rodar os scripts `01_configurar_ambiente.sh`, `02_instalar_plugins_asdf.sh`, `03_instalar_dependencias_projeto.sh` em ordem na raiz do repositório e fazendo o que é orientado no terminal: 
+`bash scripts/nome_do_script.sh`.
 
 # Como Usar o Poetry para Gerenciar Dependências
 
