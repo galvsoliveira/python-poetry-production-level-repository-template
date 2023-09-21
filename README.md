@@ -95,7 +95,7 @@ poetry install
 poetry run pre-commit install
 ```
 
-Dessa forma, você tem uma estrutura de diretórios organizada e scripts com nomes significativos que indicam claramente suas responsabilidades. Você pode executar esses scripts na ordem apropriada para configurar o ambiente e instalar as dependências do projeto. Para rodar os scripts você pode rodar no terminal: bash scripts/nome_do_script.sh.
+Dessa forma, você tem uma estrutura de diretórios organizada e scripts com nomes significativos que indicam claramente suas responsabilidades. Você pode executar esses scripts na ordem apropriada para configurar o ambiente e instalar as dependências do projeto. Para rodar os scripts você pode rodar no terminal: `bash scripts/nome_do_script.sh`.
 
 ### scripts/desinstalar_ambiente.sh
 ``` bash
