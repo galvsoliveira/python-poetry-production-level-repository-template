@@ -24,4 +24,4 @@ echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
 echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
 
 # Reinicie o terminal ou execute "source ~/.bashrc" para carregar as configurações
-echo 'Por favor, reinicie o terminal ou execute "source ~/.bashrc" para carregar as configurações.'
+echo 'Por favor, reinicie o terminal e execute "source ~/.bashrc" para carregar as configurações.'
