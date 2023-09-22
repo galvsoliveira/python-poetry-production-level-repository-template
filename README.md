@@ -3,17 +3,18 @@
 ```
 meu_projeto/
 ├── scripts/
-│   ├── 01_configurar_ambiente.sh
-│   ├── 02_instalar_plugins_asdf.sh
-│   ├── 03_instalar_dependencias_projeto.sh
-│   ├── desinstalar_ambiente.sh
+│ ├── 01_configurar_ambiente.sh
+│ ├── 02_instalar_plugins_asdf.sh
+│ ├── 03_instalar_dependencias_projeto.sh
+│ ├── desinstalar_ambiente.sh
 ├── .pre-commit-config.yaml
 ├── pyproject.toml
 ├── .tool-versions
 ```
 
-## Configurando o projeto:
-Basta rodar os scripts `01_configurar_ambiente.sh`, `02_instalar_plugins_asdf.sh`, `03_instalar_dependencias_projeto.sh` em ordem na raiz do repositório e fazendo o que é orientado no terminal: 
+## Configurando o projeto
+
+Basta rodar os scripts `01_configurar_ambiente.sh`, `02_instalar_plugins_asdf.sh`, `03_instalar_dependencias_projeto.sh` em ordem na raiz do repositório e fazendo o que é orientado no terminal:
 `bash scripts/nome_do_script.sh`. Caso alguém precise clonar o respositório e fazer testes, o procedimento é o mesmo, mas no seu repositório, então coloque no readme como o usuário pode configurar.
 
 # Como Usar o Poetry para Gerenciar Dependências
