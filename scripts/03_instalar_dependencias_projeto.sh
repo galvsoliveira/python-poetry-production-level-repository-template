@@ -68,6 +68,7 @@ EOF
 fi
 
 echo 'Installing dependencies and pre-commit ...'
+poetry run git config --local --unset-all core.hooksPath
 poetry install
 poetry run pre-commit install
 poetry run pre-commit autoupdate
