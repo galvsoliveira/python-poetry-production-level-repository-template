@@ -9,6 +9,7 @@ if [ ! -f pyproject.toml ]; then
     poetry add --group dev pylint
     poetry add --group dev ruff
     poetry add --group dev yamllint
+    poetry add --group dev sqlfluff
     poetry install
 fi
 
@@ -64,6 +65,14 @@ repos:
         entry: poetry run pylint .
         language: system
         types: [python]
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 2.3.0
+    hooks:
+      - id: sqlfluff-lint
+        name: sqlfluff-lint
+        # args: [--dialect, sqlite]
+        # additional_dependencies:
+        #   ['dbt-sqlite==1.4.0', 'sqlfluff-templater-dbt==2.3.0']
 EOF
 fi
 
