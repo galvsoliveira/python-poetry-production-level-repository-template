@@ -10,6 +10,7 @@ if [ ! -f pyproject.toml ]; then
     poetry add --group dev ruff
     poetry add --group dev yamllint
     poetry add --group dev sqlfluff
+    poetry add --group dev isort
     poetry install
 fi
 

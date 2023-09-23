@@ -20,8 +20,8 @@ sudo apt-get install -y gcc make zlib1g-dev libreadline8 sqlite3 python-tk pytho
 # Instalação do asdf (gerenciador de versões)
 echo 'Instalando asdf...'
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc
-echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+echo ". $HOME/.asdf/asdf.sh" >> ~/.bashrc
+echo ". $HOME/.asdf/completions/asdf.bash" >> ~/.bashrc
 
 # Reinicie o terminal ou execute "source ~/.bashrc" para carregar as configurações
 echo 'Por favor, reinicie o terminal e execute "source ~/.bashrc" para carregar as configurações.'

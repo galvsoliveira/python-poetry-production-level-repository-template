@@ -14,9 +14,9 @@ poetry_version=$(grep poetry .tool-versions | awk '{print $2}')
 
 # Instalação das versões do Python e do Poetry especificadas no arquivo .tool-versions
 echo "Instalando Python $python_version..."
-asdf install python $python_version
-asdf local python $python_version
+asdf install python "$python_version"
+asdf local python "$python_version"
 
 echo "Instalando Poetry $poetry_version..."
-asdf install poetry $poetry_version
-asdf local poetry $poetry_version
+asdf install poetry "$poetry_version"
+asdf local poetry "$poetry_version"
