@@ -44,6 +44,29 @@ repos:
       - id: detect-secrets
         args: ["--baseline", ".secrets.baseline"]
         exclude: package.lock.json
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-case-conflict
+      - id: detect-private-key
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: [--maxkb=500]
+  - repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
+    rev: v0.1.0
+    hooks:
+      - id: dockerfilelint
+  - repo: https://github.com/sirosen/check-jsonschema
+    rev: 0.26.3
+    hooks:
+      - id: check-github-actions
+      - id: check-github-workflows
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.5
+    hooks:
+      - id: shellcheck
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.32.0
     hooks:
@@ -59,6 +82,11 @@ repos:
     hooks:
       - id: black
         args: ["--check", "--skip-string-normalization"]
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: [--profile=black]
   - repo: local
     hooks:
       - id: pylint
@@ -67,13 +95,18 @@ repos:
         language: system
         types: [python]
   - repo: https://github.com/sqlfluff/sqlfluff
-    rev: 2.3.0
+    rev: 2.3.2
     hooks:
       - id: sqlfluff-lint
         name: sqlfluff-lint
         # args: [--dialect, sqlite]
         # additional_dependencies:
         #   ['dbt-sqlite==1.4.0', 'sqlfluff-templater-dbt==2.3.0']
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.3
+    hooks:
+      - id: prettier
+        files: \.(js|ts|jsx|tsx|css|less|html|json|markdown|md|yaml|yml)$
 EOF
 fi
 
