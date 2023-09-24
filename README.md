@@ -1,92 +1,228 @@
-# Configurando um novo repositório com Python, Poetry e asdf
+# Building a production-level Python repository with Poetry (Ubuntu/WSL2) <!-- omit in toc -->
 
-```
-meu_projeto/
+Welcome to the **Production-Level Python Repository with Poetry** template! This repository is designed to help you kickstart your Python project with the power of Poetry while ensuring a smooth setup on Ubuntu or within the Windows Subsystem for Linux 2 (WSL2). Whether you're starting a new project or migrating from an existing one, this template provides you with the tools and guidelines needed to streamline your Python development workflow.
+
+## Why Use This Template? <!-- omit in toc -->
+
+Setting up a robust development environment and managing Python dependencies can be a challenging task, especially when aiming for production-level quality. This template aims to simplify the process by offering:
+
+- **Structured Repository**: An organized project structure to keep your code, scripts, and configurations neatly arranged.
+
+- **Effortless Dependency Management**: Integration with Poetry, a modern Python packaging and dependency management tool, ensuring a seamless experience when adding, removing, or updating project dependencies.
+
+- **WSL2 Compatibility**: Tailored instructions for Windows users leveraging the Windows Subsystem for Linux 2 (WSL2) to bridge the gap between Windows and Ubuntu-based development environments.
+
+- **Git Configuration**: Guidance on configuring Git to track your project's changes effectively.
+
+- **Pre-commit Hooks**: Automated checks for style, formatting, and code quality to maintain a consistent and clean codebase.
+
+By using this template, you can focus on developing your Python project with confidence, knowing that the setup and management of dependencies are taken care of.
+
+---
+
+## Table of Contents <!-- omit in toc -->
+
+- [Template Structure](#template-structure)
+- [Configuring WSL2 (for Windows users)](#configuring-wsl2-for-windows-users)
+  - [1. Download and Install VSCode](#1-download-and-install-vscode)
+  - [2. Install WSL2](#2-install-wsl2)
+  - [3. Open Ubuntu](#3-open-ubuntu)
+  - [4. Create a User for Ubuntu](#4-create-a-user-for-ubuntu)
+  - [5. Open VSCode from Ubuntu Terminal](#5-open-vscode-from-ubuntu-terminal)
+  - [6. Install Remote - WSL Extension in VSCode](#6-install-remote---wsl-extension-in-vscode)
+  - [7. Open VSCode in WSL2](#7-open-vscode-in-wsl2)
+- [Configuring a New or Existing Repository](#configuring-a-new-or-existing-repository)
+  - [1. Creating a New Repository](#1-creating-a-new-repository)
+  - [2. Cloning an Existing Repository](#2-cloning-an-existing-repository)
+  - [3. Configuring Git](#3-configuring-git)
+  - [4. Running the Scripts](#4-running-the-scripts)
+  - [5. Migrating from requirements.txt to Poetry (optional)](#5-migrating-from-requirementstxt-to-poetry-optional)
+- [How to Use Poetry for Dependency Management](#how-to-use-poetry-for-dependency-management)
+  - [Activating the Virtual Environment](#activating-the-virtual-environment)
+  - [Editing `pyproject.toml`](#editing-pyprojecttoml)
+  - [Installing Project Dependencies](#installing-project-dependencies)
+  - [Executing Commands in the Virtual Environment](#executing-commands-in-the-virtual-environment)
+  - [Managing Dependencies with Poetry](#managing-dependencies-with-poetry)
+  - [Pre-commit Hooks](#pre-commit-hooks)
+
+---
+
+## Template Structure
+
+The template has the following structure:
+
+```txt
+my_project/
 ├── scripts/
-│ ├── 01_configurar_ambiente.sh
-│ ├── 02_instalar_plugins_asdf.sh
-│ ├── 03_instalar_dependencias_projeto.sh
-│ ├── desinstalar_ambiente.sh
-├── .pre-commit-config.yaml
-├── pyproject.toml
+│ ├── 01_config_ubuntu_env.sh
+│ ├── 02_install_asdf_plugins.sh
+│ ├── 03_install_proj_dep.sh
+│ ├── 04_requirements_txt_to_poetry(optional).sh
+│ ├── unistall_env.sh
 ├── .tool-versions
 ```
 
-## Configurando o projeto
+Each component serves a specific purpose:
 
-Basta rodar os scripts `01_configurar_ambiente.sh`, `02_instalar_plugins_asdf.sh`, `03_instalar_dependencias_projeto.sh` em ordem na raiz do repositório e fazendo o que é orientado no terminal:
-`bash scripts/nome_do_script.sh`. Caso alguém precise clonar o respositório e fazer testes, o procedimento é o mesmo, mas no seu repositório, então coloque no readme como o usuário pode configurar.
+- **`scripts/`**: This directory contains the scripts to configure the environment and install the dependencies of the project.
 
-# Como Usar o Poetry para Gerenciar Dependências
+- **`scripts/01_config_ubuntu_env.sh`**: This script configures the environment in Ubuntu.
 
-1. **Criar um novo projeto Python:**
+- **`scripts/02_install_asdf_plugins.sh`**: This script installs the project's plugins in asdf.
 
-   Se você ainda não possui um projeto Python existente, pode usar o comando `poetry new` para criar um novo projeto. Por exemplo:
+- **`scripts/03_install_proj_dep.sh`**: This script installs the project's dependencies.
 
-   ```bash
-   poetry new meu_projeto
-   ```
+- **`scripts/04_requirements_txt_to_poetry(optional).sh`**: This optional script migrates from requirements.txt to Poetry.
 
-   Isso criará uma estrutura de diretório básica para o seu projeto e um arquivo `pyproject.toml` inicial.
+- **`scripts/unistall_env.sh`**: This script uninstalls the environment.
 
-2. **Editar o `pyproject.toml`:**
+- **`.tool-versions`**: This file specifies the versions of the tools to be installed and used in the project, such as Python and Poetry.
 
-   Abra o arquivo `pyproject.toml` com seu editor de texto preferido e adicione as dependências do seu projeto sob a seção `[tool.poetry.dependencies]`. Por exemplo:
+## Configuring WSL2 (for Windows users)
 
-   ```toml
-   [tool.poetry.dependencies]
-   python = "^3.11"
-   requests = "^2.26.0"
-   ```
+### 1. Download and Install VSCode
 
-   Isso define a versão mínima do Python e adiciona a biblioteca "requests" como uma dependência.
+- Download and install VSCode from the following link: <https://code.visualstudio.com/download>.
 
-3. **Instalar Dependências do Projeto:**
+### 2. Install WSL2
 
-   Para instalar as dependências do projeto definidas em `pyproject.toml`, execute o seguinte comando na raiz do seu projeto:
+- Open PowerShell as an administrator.
+- Run the following command: `wsl --install`.
+- Restart your computer.
 
-   ```bash
-   poetry install
-   ```
+### 3. Open Ubuntu
 
-   Isso criará um ambiente virtual e instalará as dependências do projeto nele.
+- If Ubuntu doesn't open automatically after restarting, search for it in the Windows search bar and open it.
 
-4. **Executar Comandos no Ambiente Virtual:**
+### 4. Create a User for Ubuntu
 
-   Para executar comandos no contexto do ambiente virtual criado pelo Poetry, você pode usar o seguinte comando:
+- Create a user and password for your Ubuntu installation. This will be your Linux user. Be sure to save this information.
 
-   ```bash
-   poetry run <seu_comando_aqui>
-   ```
+### 5. Open VSCode from Ubuntu Terminal
 
-   Por exemplo, se você quiser executar um script Python:
+- Run the following command in the Ubuntu terminal: `code .`.
 
-   ```bash
-   poetry run python meu_script.py
-   ```
+### 6. Install Remote - WSL Extension in VSCode
 
-5. **Gerenciar Dependências com o Poetry:**
+- Install the Remote - WSL extension in VSCode.
+- Close VSCode.
 
-   - Adicionar uma nova dependência:
+### 7. Open VSCode in WSL2
 
-     ```bash
-     poetry add <pacote>
-     ```
+- Run `code .` again in the Ubuntu terminal to open VSCode in WSL2.
 
-   - Remover uma dependência:
+**Note:** These instructions are specifically for Windows users configuring WSL2.
 
-     ```bash
-     poetry remove <pacote>
-     ```
+## Configuring a New or Existing Repository
 
-   - Atualizar dependências:
+### 1. Creating a New Repository
 
-     ```bash
-     poetry update
-     ```
+- Click on the "Use this template" button to use this as a template.
+- Name your repository.
+- Choose whether your repository will be public or private.
+- Click on the "Create repository" button to create your new repository.
 
-6. **Pre-commit Hooks:**
+### 2. Cloning an Existing Repository
 
-   Se você configurou o pre-commit no seu projeto usando o script `03_instalar_dependencias_projeto.sh`, os githooks serão configurados automaticamente. Isso significa que as verificações de estilo, formatação de código, entre outras, serão executadas antes de cada commit. Certifique-se de corrigir quaisquer problemas indicados pelo pre-commit antes de confirmar suas alterações.
+- Open the Ubuntu terminal and run the following command:
+  - `git clone <link_of_your_repository>`
+  - `cd <name_of_your_repository>`
 
-Agora você está pronto para desenvolver seu projeto Python com Poetry. Lembre-se de que o Poetry gerencia suas dependências de forma eficiente e facilita a criação de ambientes virtuais isolados para seus projetos.
+### 3. Configuring Git
+
+- You may be asked to configure the git user and email. If so, run the following commands:
+  - `git config --global user.name "<your_name>"`
+  - `git config --global user.email "<your_email>"`
+
+### 4. Running the Scripts
+
+Open a terminal in the root of your project and run the following commands:
+
+- `bash scripts/01_config_ubuntu_env.sh`
+  - Restart your terminal.
+- `bash scripts/02_install_asdf_plugins.sh`
+- `bash scripts/03_install_proj_dep.sh`
+
+### 5. Migrating from requirements.txt to Poetry (optional)
+
+If you have a requirements.txt file and want to migrate to Poetry, run the following command:
+
+```bash
+bash scripts/04_requirements_txt_to_poetry(optional).sh
+```
+
+**Note:** Make sure to run these commands in the specified order for proper setup. If you already have a repository, you can start from step 2.
+
+## How to Use Poetry for Dependency Management
+
+### Activating the Virtual Environment
+
+To activate the virtual environment created by Poetry, execute the following command at the root of your project:
+
+```bash
+poetry shell
+```
+
+This will activate the virtual environment and you will be able to execute commands within its context.
+
+### Editing `pyproject.toml`
+
+Open the `pyproject.toml` file with your preferred text editor and add your project's dependencies under the `[tool.poetry.dependencies]` section. For example:
+
+```toml
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.26.0"
+```
+
+This sets the minimum Python version and adds the "requests" library as a dependency.
+
+### Installing Project Dependencies
+
+To install the project dependencies defined in `pyproject.toml`, execute the following command at the root of your project:
+
+```bash
+poetry install
+```
+
+This will create a virtual environment and install the project dependencies in it.
+
+### Executing Commands in the Virtual Environment
+
+To execute commands within the context of the virtual environment created by Poetry, you can use the following command:
+
+```bash
+poetry run <your_command_here>
+```
+
+For example, if you want to run a Python script:
+
+```bash
+poetry run python my_script.py
+```
+
+### Managing Dependencies with Poetry
+
+- Add a new dependency:
+
+  ```bash
+  poetry add <package>
+  ```
+
+- Remove a dependency:
+
+  ```bash
+  poetry remove <package>
+  ```
+
+- Update dependencies:
+
+  ```bash
+  poetry update
+  ```
+
+### Pre-commit Hooks
+
+If you have configured pre-commit in your project using the `03_install_proj_dep.sh` script, githooks will be set up automatically. This means that style checks, code formatting, among others, will be executed before each commit. Make sure to fix any issues indicated by pre-commit before confirming your changes.
+
+Now you're ready to develop your Python project with Poetry! Remember that Poetry manages your dependencies efficiently and makes it easy to create isolated virtual environments for your projects.
