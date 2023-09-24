@@ -24,13 +24,6 @@ By using this template, you can focus on developing your Python project with con
 
 - [Template Structure](#template-structure)
 - [Configuring WSL2 (for Windows users)](#configuring-wsl2-for-windows-users)
-  - [1. Download and Install VSCode](#1-download-and-install-vscode)
-  - [2. Install WSL2](#2-install-wsl2)
-  - [3. Open Ubuntu](#3-open-ubuntu)
-  - [4. Create a User for Ubuntu](#4-create-a-user-for-ubuntu)
-  - [5. Open VSCode from Ubuntu Terminal](#5-open-vscode-from-ubuntu-terminal)
-  - [6. Install Remote - WSL Extension in VSCode](#6-install-remote---wsl-extension-in-vscode)
-  - [7. Open VSCode in WSL2](#7-open-vscode-in-wsl2)
 - [Configuring a New or Existing Repository](#configuring-a-new-or-existing-repository)
   - [1. Creating a New Repository](#1-creating-a-new-repository)
   - [2. Cloning an Existing Repository](#2-cloning-an-existing-repository)
@@ -80,36 +73,29 @@ Each component serves a specific purpose:
 
 ## Configuring WSL2 (for Windows users)
 
-### 1. Download and Install VSCode
+1. Download and Install VSCode
+   - Download and install VSCode from the following link: <https://code.visualstudio.com/download>.
 
-- Download and install VSCode from the following link: <https://code.visualstudio.com/download>.
+2. Install WSL2
+   - Open PowerShell as an administrator.
+   - Run the following command: `wsl --install`.
+   - Restart your computer.
 
-### 2. Install WSL2
+3. Open Ubuntu
+   - If Ubuntu doesn't open automatically after restarting, search for it in the Windows search bar and open it.
 
-- Open PowerShell as an administrator.
-- Run the following command: `wsl --install`.
-- Restart your computer.
+4. Create a User for Ubuntu
+   - Create a user and password for your Ubuntu installation. This will be your Linux user. Be sure to save this information.
 
-### 3. Open Ubuntu
+5. Open VSCode from Ubuntu Terminal
+   - Run the following command in the Ubuntu terminal: `code .`.
 
-- If Ubuntu doesn't open automatically after restarting, search for it in the Windows search bar and open it.
+6. Install Remote - WSL Extension in VSCode
+   - Install the Remote - WSL extension in VSCode.
+   - Close VSCode.
 
-### 4. Create a User for Ubuntu
-
-- Create a user and password for your Ubuntu installation. This will be your Linux user. Be sure to save this information.
-
-### 5. Open VSCode from Ubuntu Terminal
-
-- Run the following command in the Ubuntu terminal: `code .`.
-
-### 6. Install Remote - WSL Extension in VSCode
-
-- Install the Remote - WSL extension in VSCode.
-- Close VSCode.
-
-### 7. Open VSCode in WSL2
-
-- Run `code .` again in the Ubuntu terminal to open VSCode in WSL2.
+7. Open VSCode in WSL2
+   - Run `code .` again in the Ubuntu terminal to open VSCode in WSL2.
 
 **Note:** These instructions are specifically for Windows users configuring WSL2.
 
