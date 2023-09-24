@@ -131,7 +131,7 @@ Open a terminal in the root of your project and run the following commands:
 
 ### 5. Migrating from requirements.txt to Poetry (optional)
 
-If you have a requirements.txt file and want to migrate to Poetry, run the following command:
+If you have a requirements.txt file and you want to migrate it to Poetry, put the file in the root of the repository and run the following command:
 
 ```bash
 bash scripts/04_requirements_txt_to_poetry(optional).sh
