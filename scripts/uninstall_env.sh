@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Remova o ambiente virtual do projeto atual
-echo 'Removendo o ambiente virtual do projeto atual...'
+# Removing the virtual environment of the current project
+echo 'Removing the virtual environment of the current project...'
 poetry env remove "$(poetry run which python)"
 
-echo 'Concluído. O ambiente virtual do projeto atual foi removido.'
+echo 'Done. The virtual environment of the current project was removed.'
