@@ -73,29 +73,22 @@ Each component serves a specific purpose:
 
 ## Configuring WSL2 (for Windows users)
 
-1. Download and Install VSCode
+1. Download, install VSCode and prepare VSCode for WSL2
    - Download and install VSCode from the following link: <https://code.visualstudio.com/download>.
+   - Open VSCode and install the WSL extension (ms-vscode-remote.remote-wsl).
+   - Close VSCode.
 
 2. Install WSL2
    - Open PowerShell as an administrator.
    - Run the following command: `wsl --install`.
    - Restart your computer.
 
-3. Open Ubuntu
+3. Create a User for Ubuntu
    - If Ubuntu doesn't open automatically after restarting, search for it in the Windows search bar and open it.
-
-4. Create a User for Ubuntu
    - Create a user and password for your Ubuntu installation. This will be your Linux user. Be sure to save this information.
 
-5. Open VSCode from Ubuntu Terminal
+4. Open VSCode from Ubuntu Terminal
    - Run the following command in the Ubuntu terminal: `code .`.
-
-6. Install Remote - WSL Extension in VSCode
-   - Install the Remote - WSL extension in VSCode.
-   - Close VSCode.
-
-7. Open VSCode in WSL2
-   - Run `code .` again in the Ubuntu terminal to open VSCode in WSL2.
 
 **Note:** These instructions are specifically for Windows users configuring WSL2.
 
@@ -110,15 +103,17 @@ Each component serves a specific purpose:
 
 ### 2. Cloning an Existing Repository
 
-- Open the Ubuntu terminal and run the following command:
-  - `git clone <link_of_your_repository>`
-  - `cd <name_of_your_repository>`
+Open the Ubuntu terminal and run the following command:
+
+- `git clone <link_of_your_repository>`
+- `cd <name_of_your_repository>`
 
 ### 3. Configuring Git
 
-- You may be asked to configure the git user and email. If so, run the following commands:
-  - `git config --global user.name "<your_name>"`
-  - `git config --global user.email "<your_email>"`
+You may be asked to configure the git user and email. If so, run the following commands:
+
+- `git config --global user.name "<your_name>"`
+- `git config --global user.email "<your_email>"`
 
 ### 4. Running the Scripts
 
