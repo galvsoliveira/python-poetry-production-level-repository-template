@@ -3,14 +3,7 @@
 if [ ! -f pyproject.toml ]; then
     echo 'Creating pyproject.toml ...'
     poetry init
-    poetry add --group dev pre-commit
-    poetry add --group dev detect-secrets
-    poetry add --group dev black
-    poetry add --group dev pylint
-    poetry add --group dev ruff
-    poetry add --group dev yamllint
-    poetry add --group dev sqlfluff
-    poetry add --group dev isort
+    poetry add --group dev pre-commit detect-secrets black pylint ruff yamllint sqlfluff isort
     poetry install
 fi
 
