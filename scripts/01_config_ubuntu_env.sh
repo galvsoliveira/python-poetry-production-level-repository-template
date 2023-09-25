@@ -18,5 +18,6 @@ echo 'Installing asdf (versions manager)...'
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
 echo ". $HOME/.asdf/asdf.sh" >> ~/.bashrc
 echo ". $HOME/.asdf/completions/asdf.bash" >> ~/.bashrc
+echo 'export PATH="$HOME/.poetry/bin:$PATH"' >> ~/.bashrc
 
 echo 'Please, reboot the terminal and run "source ~/.bashrc" to load the settings.'
