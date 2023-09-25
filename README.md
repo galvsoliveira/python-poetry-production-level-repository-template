@@ -120,7 +120,7 @@ You may be asked to configure the git user and email. If so, run the following c
 Open a terminal in the root of your project and run the following commands:
 
 - `bash scripts/01_config_ubuntu_env.sh`
-  - Restart your terminal and run `source ~/.bashrc`
+  - Restart your terminal and run `source ~/.bashrc`.
 - `bash scripts/02_install_asdf_plugins.sh`
 - `bash scripts/03_install_proj_dep.sh`
 
