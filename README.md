@@ -117,7 +117,10 @@ You may be asked to configure the git user and email. If so, run the following c
 
 ### 4. Running the Scripts
 
-Open a terminal in the root of your project and run the following commands:
+Edit the file `.tools-versions` with the desired Python and Poetry versions you want for the project. If you do not change it, it will install Python 3.11.5
+and Poetry 1.6.1. 
+
+To run the scripts, open a terminal in the root of your project and run the following commands:
 
 - `bash scripts/01_config_ubuntu_env.sh`
   - Restart your terminal and run `source ~/.bashrc`.
