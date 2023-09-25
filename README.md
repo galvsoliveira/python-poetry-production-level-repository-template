@@ -36,7 +36,7 @@ By using this template, you can focus on developing your Python project with con
   - [Installing Project Dependencies](#installing-project-dependencies)
   - [Executing Commands in the Virtual Environment](#executing-commands-in-the-virtual-environment)
   - [Managing Dependencies with Poetry](#managing-dependencies-with-poetry)
-  - [Pre-commit Hooks](#pre-commit-hooks)
+- [Pre-commit Hooks](#pre-commit-hooks)
 
 ---
 
@@ -202,7 +202,7 @@ poetry run python my_script.py
   poetry update
   ```
 
-### Pre-commit Hooks
+## Pre-commit Hooks
 
 If you have configured pre-commit in your project using the `03_install_proj_dep.sh` script, githooks will be set up automatically. This means that style checks, code formatting, among others, will be executed before each commit. Make sure to fix any issues indicated by pre-commit before confirming your changes.
 
