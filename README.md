@@ -211,6 +211,6 @@ If you have configured pre-commit in your project using the `03_install_proj_dep
 
 Now you're ready to develop your Python project with Poetry! Remember that Poetry manages your dependencies efficiently and makes it easy to create isolated virtual environments for your projects.
 
-## Acknowledgments:
+## Acknowledgments
 
 Special thanks to @ArthurPieri and @f2acode, my friends and co-workers, whose work served as inspiration in this project and in my whole development.
