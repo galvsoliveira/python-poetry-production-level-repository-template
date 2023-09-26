@@ -210,3 +210,7 @@ poetry run python my_script.py
 If you have configured pre-commit in your project using the `03_install_proj_dep.sh` script, githooks will be set up automatically. This means that style checks, code formatting, among others, will be executed before each commit. Make sure to fix any issues indicated by pre-commit before confirming your changes.
 
 Now you're ready to develop your Python project with Poetry! Remember that Poetry manages your dependencies efficiently and makes it easy to create isolated virtual environments for your projects.
+
+## Acknowledgments:
+
+Special thanks to @ArthurPieri and @f2acode, my friends and co-workers, whose work served as inspiration in this project and in my whole development.
