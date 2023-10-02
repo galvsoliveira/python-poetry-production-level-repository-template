@@ -1,4 +1,5 @@
 #!/bin/bash/
 
-poetry cache clear PyPI --all
-poetry lock --no-update
+poetry cache clear . --all
+rm poetry.lock
+poetry install
