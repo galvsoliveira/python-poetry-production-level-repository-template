@@ -4,12 +4,12 @@
 while IFS= read -r requirement
 do
   # Try to add each requirement to the poetry project
-  if ! poetry add "$requirement"
+  if ! poetry add "${requirement}"
   then
-    echo "Failed to add $requirement"
+    echo "Failed to add ${requirement}"
     exit 1
   else
-    echo "Successfully added $requirement"
+    echo "Successfully added ${requirement}"
   fi
 
 done < requirements.txt
