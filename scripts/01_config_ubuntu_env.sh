@@ -16,8 +16,11 @@ sudo apt-get install -y gcc make zlib1g-dev libreadline8 sqlite3 python-tk pytho
 
 echo 'Installing asdf (versions manager)...'
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
-echo ". $HOME/.asdf/asdf.sh" >> ~/.bashrc
-echo ". $HOME/.asdf/completions/asdf.bash" >> ~/.bashrc
-echo 'export PATH="$HOME/.poetry/bin:$PATH"' >> ~/.bashrc # shellcheck disable=SC2154
+{
+  echo ". ${HOME}/.asdf/asdf.sh";
+  echo ". ${HOME}/.asdf/completions/asdf.bash";
+} >> ~/.bashrc
+# shellcheck disable=SC2016
+echo 'export PATH="${HOME}/.poetry/shims:${PATH}"' >> ~/.bashrc
 
 echo 'Please, reboot the terminal and run "source ~/.bashrc" to load the settings.'
